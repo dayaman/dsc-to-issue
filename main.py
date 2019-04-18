@@ -21,6 +21,7 @@ async def on_ready():
         for emoji in guild.emojis:
             if emoji.name == 'issue':
                 is_issue = True
+                print('すでにあるやで')
         print(is_issue)
         if is_issue == False:
             path = 'images/issue.png'
@@ -28,8 +29,11 @@ async def on_ready():
                 with open(path, mode='rb') as f:
                     print('絵文字追加')
                     # issue_emoji = discord.File(f)
-                    await guild.create_custom_emoji(name='issue', image=f.read(), reason='for issueBOT')
-                    print('追加完了')
+                    try:
+                        await guild.create_custom_emoji(name='issue', image=f.read(), reason='for issueBOT')
+                        print('追加完了')
+                    except HTTPException:
+                        print('絵文字がいっぱーい')
             
 
 client.run(token)
