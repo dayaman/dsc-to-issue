@@ -18,8 +18,6 @@ async def on_ready():
     for guild in client.guilds:
         is_issue = False
         print(len(guild.emojis))
-        if len(guild.emojis) == 50:
-            is_issue = True
         for emoji in guild.emojis:
             if emoji.name == 'issue':
                 is_issue = True
