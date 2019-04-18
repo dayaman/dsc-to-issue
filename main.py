@@ -27,8 +27,8 @@ async def on_ready():
             if os.path.isfile(path):
                 with open(path, mode='rb') as f:
                     print('絵文字追加')
-                    # issue_emoji = discord.File(f)
-                    await guild.create_custom_emoji(name='issue', image=f, reason='for issueBOT')
+                    issue_emoji = discord.File(f)
+                    await guild.create_custom_emoji(name='issue', image=issue_emoji, reason='for issueBOT')
                     print('追加完了')
             
 
