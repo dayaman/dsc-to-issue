@@ -28,7 +28,7 @@ async def on_ready():
                 with open(path, mode='rb') as f:
                     print('絵文字追加')
                     # issue_emoji = discord.File(f)
-                    await guild.create_custom_emoji('issue', f, reason='for issueBOT')
+                    await guild.create_custom_emoji(name='issue', image=f, reason='for issueBOT')
                     print('追加完了')
             
 
