@@ -15,7 +15,7 @@ client = discord.Client()
 @client.event
 async def on_ready():
     # ログインギルドのカスタム絵文字を取得、emojiが50個あるか、「issue」があればスルー、なければ作る
-    for guild in bot.guilds:
+    for guild in client.guilds:
         is_issue = False
         if len(guild.emojis) == 50:
             is_issue = True
