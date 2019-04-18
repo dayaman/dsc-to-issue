@@ -17,17 +17,21 @@ async def on_ready():
     # ログインギルドのカスタム絵文字を取得、emojiが50個あるか、「issue」があればスルー、なければ作る
     for guild in client.guilds:
         is_issue = False
+        print(len(guild.emojis))
         if len(guild.emojis) == 50:
             is_issue = True
         for emoji in guild.emojis:
             if emoji.name == 'issue':
                 is_issue = True
+        print(is_issue)
         if is_issue == False:
             path = 'images/issue.png'
             if os.path.isfile(path):
                 with open(path, mode='rb') as f:
+                    print('絵文字追加')
                     # issue_emoji = discord.File(f)
                     await guild.create_custom_emoji('issue', f, reason='for issueBOT')
+                    print('追加完了')
             
 
 client.run(token)
