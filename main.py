@@ -32,7 +32,7 @@ async def on_ready():
                     try:
                         await guild.create_custom_emoji(name='issue', image=f.read(), reason='for issueBOT')
                         print('追加完了')
-                    except HTTPException:
+                    except discord.errors.HTTPException:
                         print('絵文字がいっぱーい')
             
 
